@@ -1,0 +1,87 @@
+<html>
+    <title>for Loops</title>
+    <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <link type="text/css" rel="stylesheet" href="main.css">
+    <script>
+        var actualAnswer;
+        var number1;
+        var number2;
+        var currentCount = 0;
+        var numberCorrect = 0;
+        var numberInCorrect = 0;
+        var numberOfQuestions = 5;
+        var isNewQuestion = true;
+        function printQuestion()
+        {
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+        }
+        function checkAnswer()
+        {
+            
+            if(currentCount < numberOfQuestions)
+            {
+                if(isNewQuestion == true)
+                {
+                    currentCount++;
+                }
+                var answer = document.getElementById("txtAnswer").value;
+                if(answer == actualAnswer)
+                {
+                    if(isNewQuestion == true)
+                    {
+                        numberCorrect++;
+                    }
+                    isNewQuestion = true;
+                    document.getElementById("finalResult").innerHTML = "Good job!";
+                    document.getElementById("txtAnswer").value = "";
+                    runGame();
+                }
+                else
+                {
+                    if(isNewQuestion == true)
+                    {
+                        numberInCorrect++;
+                    }
+                    isNewQuestion = false;
+                    
+                    document.getElementById("finalResult").innerHTML = "Try Again!";
+                }
+            }
+            else
+            {
+                document.getElementById("finalResult").innerHTML = "You got " + numberCorrect + " answers correct and " + numberInCorrect + " answers incorrect.  Your Percentage is " + (numberCorrect/currentCount) * 100 + "%";
+            }
+        }
+
+        function runGame()
+        {
+            for(var i = 0; i < 5; i++)
+            {
+                 number1 = Math.floor(Math.random() * 10);
+                 number2 = Math.floor(Math.random() * 10);
+            }
+            printQuestion();
+        }
+    </script>
+    </head>
+    <body onload="runGame();">
+        <div class="h1" id="theQuestion"></div>
+            <table>
+                <tr>
+                    <td class="h3">Your answer</td>
+                    <td><input type="text" class="form-text" id="txtAnswer"></td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2"><button id="btnSubmit" class="btn-dark" onClick="checkAnswer();">Submit</button></td>
+                </tr>
+            </table>
+            <p></p>
+        <div id="finalResult" class="h2"></div> 
+    </body>
+ </html>

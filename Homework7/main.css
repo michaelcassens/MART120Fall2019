@@ -2,3 +2,27 @@ body{
     font-family: Tahoma, sans-serif;
     background-color: beige;
 }
+
+.highlight{
+    font-size: 32px;
+    font-weight: bold;
+    
+}
+
+#section1{
+    font-size:24px;
+    font-stretch: narrower;
+    color:blue;
+}
+
+#section2{
+    font-size:24px;
+    font-stretch: wider;
+    color:green;
+}
+
+#section3{
+    font-size:24px;
+    font-stretch: ultra-expanded;
+    color:red;
+}

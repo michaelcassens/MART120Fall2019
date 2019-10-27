@@ -47,6 +47,9 @@ function draw()
     square(width/2-100,300,60);
     square(width/2+50,300,60);
 
+    //stroke('purple'); // Change the color
+    //strokeWeight(10); // Make the points 10 pixels in size
+    //point(400,400);
     fill(0);
     textSize(25);
     text("Myself",50,50);

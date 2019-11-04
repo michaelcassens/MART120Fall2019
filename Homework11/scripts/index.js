@@ -8,6 +8,8 @@ var exitXTop = 0;
 var exitXBottom = 0;
 var exitYTop = 0;
 var exitYBottom = 0;
+var mousex = -10;
+var mousey = -10;
 function setup()
 {
     createCanvas(800, 600);
@@ -78,6 +80,8 @@ function draw()
        fill(0);
        text("You win!", width/2-100, height/2)
     }
+    fill(200,20,30);
+    circle(mousex,mousey,30);
 }
 
 function keyPressed()
@@ -101,5 +105,11 @@ function keyPressed()
    }
 
 
+}
+
+function mousePressed()
+{
+   mousex = mouseX;
+   mousey = mouseY;
 }
 
